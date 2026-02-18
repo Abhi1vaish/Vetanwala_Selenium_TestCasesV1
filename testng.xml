@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Vetanwala Suite">
+
+    <test name="Chrome Test">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <!--<class name="org.example.GoogleTest"/>-->
+<!--
+            <class name="org.example.VetanwalaLoginTest"/>
+-->
+            <class name="org.example.Employeelogin2"/>
+
+        </classes>
+    </test>
+
+</suite>
