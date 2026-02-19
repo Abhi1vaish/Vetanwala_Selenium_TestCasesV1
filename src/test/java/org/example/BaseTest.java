@@ -8,10 +8,13 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Optional;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.testng.asserts.SoftAssert;
 
 public class BaseTest {
 
     protected WebDriver driver;
+    public SoftAssert softAssert;
+
 
     @BeforeClass
     @Parameters("browser")
@@ -23,6 +26,7 @@ public class BaseTest {
         }
 
         driver.manage().window().maximize();
+        softAssert= new SoftAssert();
         System.out.println("Browser Launched: " + browser);
     }
 
