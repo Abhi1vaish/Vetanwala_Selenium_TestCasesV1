@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class NewSignUp extends BaseTest {
 
@@ -79,7 +80,9 @@ public class NewSignUp extends BaseTest {
         String fieldValue = confpassword.getAttribute("value");
         if (fieldValue.isEmpty()) {
             confpassword.sendKeys("Test@123");
+
         }
+        softAssert.assertAll();
 
     }
 }
