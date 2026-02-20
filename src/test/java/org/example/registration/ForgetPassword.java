@@ -12,7 +12,7 @@ import java.time.Duration;
 
 public class ForgetPassword extends BaseTest {
 
-    @Test
+    @Test(priority = -1)
     public void forgetPass() {
 
 
@@ -69,4 +69,34 @@ public class ForgetPassword extends BaseTest {
 
         softAssert.assertAll();
     }
+
+    @Test(priority = 0)
+    public void ForgetPassword1() {
+
+
+        // Navigate to login page
+        driver.get("https://vetanwala.com/login");
+
+        // Enter Invalid email
+        WebElement emailField = driver.findElement(By.id("email"));
+        emailField.sendKeys("abhisvaish@thesileo.com");
+
+        // Verify the entered email is correctly inputted
+        softAssert.assertEquals(emailField.getAttribute("value"),
+                "abhisvaish@thesileo.com", "Verify invalid email entry");
+
+        // Enter password
+        WebElement passwordField = driver.findElement(By.id("password"));
+        passwordField.sendKeys("12345678");
+
+        // Click login
+        driver.findElement(By.id("submit-login")).click();
+
+        // Optionally, add validation of the error message here
+
+        softAssert.assertAll();
+    }
 }
+
+
+
