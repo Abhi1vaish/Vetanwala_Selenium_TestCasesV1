@@ -25,7 +25,7 @@ public class BaseTest {
             driver = new ChromeDriver();
         }
 
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
         softAssert= new SoftAssert();
         System.out.println("Browser Launched: " + browser);
     }

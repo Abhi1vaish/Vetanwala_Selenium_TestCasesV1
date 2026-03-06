@@ -65,8 +65,6 @@ public class ForgetPassword extends BaseTest {
         softAssert.assertEquals(actualConfirmation, expectedConfirmation, "Forgot password email sent confirmation");
         System.out.println("✔ Confirmation message: " + actualConfirmation);
 
-
-
         softAssert.assertAll();
     }
 
