@@ -30,6 +30,7 @@ public class BaseTest {
         System.out.println("Browser Launched: " + browser);
     }
 
+
     @AfterClass
     public void tearDown() {
         if (driver != null) {
@@ -37,4 +38,6 @@ public class BaseTest {
             System.out.println("Browser Closed");
         }
     }
+
+
 }
