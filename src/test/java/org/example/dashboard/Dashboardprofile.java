@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -38,7 +39,7 @@ public class Dashboardprofile extends BaseTest {
         System.out.println("Profile Page Open Successfully");
 
     }
-    @Test
+    @Test (priority = 1)
     public void ProfileVerification(){
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -49,9 +50,24 @@ public class Dashboardprofile extends BaseTest {
         softAssert.assertTrue(variable.contains("Work Place"),"Work Place text is present not on Dashboard page");
         System.out.println("Profile Page Open Successfully");
         softAssert.assertAll();
+
+    }
+@Test (priority = 0)
+    public void ProfileVerifications(){
+
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    WebElement WorkPlace = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[normalize-space()='Department']")));
+    WorkPlace.isDisplayed();
+
+    Assert.assertTrue(WorkPlace.isDisplayed(), "Department element is not visible on Profile page");
+    String departmentText = WorkPlace.getText().trim();
+
+    if (departmentText.equals ("Testing")){
+        System.out.println("Department name is showing correct");
+    }
+    else{
+        System.out.println("Department name is showing Incorrect" + departmentText);
     }
 
-
-
-
+    }
 }
