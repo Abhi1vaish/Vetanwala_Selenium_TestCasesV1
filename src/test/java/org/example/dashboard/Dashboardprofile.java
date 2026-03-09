@@ -38,5 +38,20 @@ public class Dashboardprofile extends BaseTest {
         System.out.println("Profile Page Open Successfully");
 
     }
+    @Test
+    public void ProfileVerification(){
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement ProfileText = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h5[normalize-space()='Work Place']")));
+        ProfileText.isDisplayed();
+
+        String variable = ProfileText.getText();
+        softAssert.assertTrue(variable.contains("Work Place"),"Work Place text is present not on Dashboard page");
+        System.out.println("Profile Page Open Successfully");
+        softAssert.assertAll();
+    }
+
+
+
 
 }
