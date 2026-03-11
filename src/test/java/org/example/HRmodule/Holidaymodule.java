@@ -1,7 +1,9 @@
 package org.example.HRmodule;
 
 import org.example.BaseTest;
+import org.example.registration.LoginbaseTest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -36,7 +38,7 @@ public class Holidaymodule extends BaseTest {
         System.out.println("HR Page Open Successfully");
     }
 
-    @Test
+    @Test (priority = 1)
     public void Holidays () throws InterruptedException {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -52,4 +54,16 @@ public class Holidaymodule extends BaseTest {
         System.out.println("Holiday Page Open Successfully");
         Thread.sleep(3000);
     }
+
+@Test (priority = 2)
+    public void CheckHolidayListTest() throws InterruptedException{
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        driver.findElement(By.id("search-text-field")).sendKeys("Eid-ul-Fitr");
+        driver.findElement(By.id("search-text-field")).click();
+        Thread.sleep(3000);
+    }
 }
+
+
